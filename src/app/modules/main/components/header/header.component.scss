@@ -1,0 +1,99 @@
+%robotoCondensedBold {
+  font: {
+    family: RobotoCondensed;
+    weight: bold;
+  }
+  color: white;
+}
+
+%robotoCondensedBoldItalic {
+  @extend %robotoCondensedBold;
+  font-style: italic;
+}
+
+header {
+  .headerInner {
+    background-color: #389ef2;
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    padding: 0 15px;
+  }
+}
+
+li{
+  span{
+    @extend %robotoCondensedBold;
+    font-size: 1.56em;
+    vertical-align: middle;
+    margin-left: 12px;
+  }
+  img{
+    height: 25px;
+    vertical-align: middle;
+  }
+  &:hover {
+    span, img {
+      opacity: .6;
+      cursor: pointer;
+    }
+
+  }
+}
+li:nth-of-type(2) {
+  margin: 0 43px;
+}
+
+.headerBackground {
+  position: relative;
+  height: 495px;
+  background-image: url('/assets/svg/header-Background.png');
+  h1{
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-43%, -97%);
+    font: {
+      family: Roboto;
+      style: italic;
+      size: 118px;
+    }
+    color: white;
+  }
+  img[alt="logotipe"] {
+    z-index: 5;
+    opacity: .2;
+    height: 296px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-125%, -50%);
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  a {
+    text-decoration: none;
+    img{
+      max-height: 33px;
+    }
+  }
+  span:first-of-type {
+    @extend %robotoCondensedBoldItalic;
+    font-size: 28px;
+    line-height: 42px;
+    padding: 0 11px;
+    border-right: 2px solid #ffc107 ;
+  }
+  span:last-of-type {
+    font-size: 0.97em;
+    @extend %robotoCondensedBold;
+    text-transform: uppercase;
+    padding: 0 10px;
+    line-height: 22px;
+  }
+
+}
