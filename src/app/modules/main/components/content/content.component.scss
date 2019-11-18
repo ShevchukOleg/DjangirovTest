@@ -1,0 +1,97 @@
+main {
+  width: 100%;
+  margin: auto;
+  z-index: 10;
+}
+
+.coloristic {
+  background-color: black;
+  box-shadow: 0px 0px 6px 0px #000000;
+  margin-bottom: 6px;
+}
+
+
+
+.sectionTitle{
+  margin: 14px 0 19px;
+  color: white;
+  font: {
+    family: RobotoCondensed;
+    weight:  bold;
+    size: 30px;
+  }
+  letter-spacing: 0.6px;
+
+}
+
+.control {
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .filterTypeButton {
+    transition: 0.4s;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    width: 139px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font: {
+      family: RobotoCondensed;
+      size: 21px;
+      weight: bold;
+    }
+  }
+  .filterTypeButton:nth-of-type(2) {
+    margin: 0 23px;
+  }
+  .filterTypeButton:hover, .filterTypeButton.active:hover{
+    background-color: rgb(94, 94, 94);
+    transition: 0.4s;
+  }
+  .filterTypeButton.active {
+    background-color: white;
+    color: black;
+    transition: 0.4s;
+  }
+
+  .filterTypeButton:focus  {
+    outline: none;
+  }
+}
+
+.cascadeType {
+  transition: 0.4s;
+  opacity: .63;
+  padding: 0;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  margin: 0  0 0 10px;
+  background-color: black;
+  img {
+    max-height: 100%;
+  }
+  &:nth-of-type(even) {
+    margin-left: 50px !important;
+  }
+
+  &.active {
+    opacity: 1;
+    transition: 0.4s;
+  }
+}
+
+button.cascadeType:focus  {
+  outline: none;
+}
+
+.carusel {
+  min-height: 60px;
+  background: white;
+}

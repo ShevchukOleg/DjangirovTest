@@ -1,0 +1,64 @@
+.footerWrapper {
+  align-items: center;
+  background-color: #010b13;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  h3 {
+    font: {
+      family: RobotoCondensed;
+      size: 31px;
+      style: italic;
+      weight: bold;
+    }
+    letter-spacing: 0.1px;
+    margin: 32px 0 10px;
+  }
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    li {
+      margin: 5px 0 0;
+      font: {
+        family: RobotoCondensed;
+        style: italic;
+        size: 26px;
+      }
+      letter-spacing: 0.2px;
+      padding: 0 3px;
+      span {
+        font-style: normal;
+      }
+    }
+    li:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  span {
+    margin: 25px 0;
+    font: {
+      family: RobotoCondensed;
+      style: italic;
+      size: 1.23em;
+    }
+  }
+}
+
+#leftImg, #rightImg {
+  position: absolute;
+  max-height: 325px;
+}
+
+#leftImg {
+  top: 38px;
+  left: -80px;
+}
+
+#rightImg {
+  top: -187px;
+  right: -19px;
+}

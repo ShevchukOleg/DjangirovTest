@@ -1,1 +1,62 @@
-<p>content works!</p>
+<main>
+  <div class="section">
+    <div class="coloristic">
+      <div class="container ">
+        <div class="row">
+          <h2 class="sectionTitle">Coming soon</h2>
+          <div class="control">
+            <button class="filterTypeButton" (click)="changeViewState('comingSoon', 'all')" [ngClass]="{'active': viewState.filter1 === 'all'}">
+              All
+            </button>
+            <button class="filterTypeButton" (click)="changeViewState('comingSoon', 'movies')" [ngClass]="{'active': viewState.filter1 === 'movies'}">
+              Movies
+            </button>
+            <button class="filterTypeButton" (click)="changeViewState('comingSoon', 'tv')" [ngClass]="{'active': viewState.filter1 === 'tv'}">
+              TV Shows
+            </button>
+            <button class="cascadeType" (click)="changeViewState('comingSoon', 'card')" [ngClass]="{'active': viewState.view1 === 'card'}">
+              <img src="./assets/svg/card-view.gif" alt="cards icon">
+            </button>
+            <button class="cascadeType" (click)="changeViewState('comingSoon', 'list')" [ngClass]="{'active': viewState.view1 === 'list'}">
+              <img src="./assets/svg/list-view.gif" alt="list icon">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- control end -->
+    <div class="carusel">
+
+    </div>
+    <!-- carusel end -->
+    <div class="coloristic">
+        <div class="container ">
+          <div class="row">
+            <h2 class="sectionTitle">Most popular</h2>
+            <div class="control">
+              <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'all')" [ngClass]="{'active': viewState.filter2 === 'all'}">
+                All
+              </button>
+              <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'movies')" [ngClass]="{'active': viewState.filter2 === 'movies'}">
+                Movies
+              </button>
+              <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'tv')" [ngClass]="{'active': viewState.filter2 === 'tv'}">
+                TV Shows
+              </button>
+              <button class="cascadeType" (click)="changeViewState('mostPopular', 'card')" [ngClass]="{'active': viewState.view2 === 'card'}">
+                <img src="./assets/svg/card-view.gif" alt="cards icon">
+              </button>
+              <button class="cascadeType" (click)="changeViewState('mostPopular', 'list')" [ngClass]="{'active': viewState.view2 === 'list'}">
+                <img src="./assets/svg/list-view.gif" alt="list icon">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- control end -->
+  <div class="carusel">
+
+  </div>
+
+</main>
