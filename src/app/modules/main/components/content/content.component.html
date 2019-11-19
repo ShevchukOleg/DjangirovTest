@@ -26,7 +26,40 @@
     </div>
     <!-- control end -->
     <div class="carusel">
-
+      <!-- <owl-carousel [options]="owlParams" [items]="allFilms">
+        <div class="item" *ngFor="let item of allFilms">
+            <div>{{item.title}}</div>
+        </div>
+      </owl-carousel> -->
+      <div class="owl-carousel slide-one">
+        <div *ngFor="let film of allFilms" class="itemWrapper">
+          <h4>{{film.title}}</h4>
+          <span>{{film.year}}</span>
+          <div class="imageWrapper">
+            <img [src]="film.poster" alt="film poster">
+          </div>
+          <div class="info">
+            <div class="infoElement">
+              <img src="" alt="">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="infoElement">
+              <span>{{film.comments_count}}</span>
+              <img src="" alt="">
+            </div>
+            <div class="infoElement">
+              <span>{{film.rank}}</span>
+              <img src="" alt="">
+            </div>
+            <div class="infoElement">
+              <span>{{film.rank}}</span>
+              <img src="" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- carusel end -->
     <div class="coloristic">
@@ -56,7 +89,15 @@
   </div>
   <!-- control end -->
   <div class="carusel">
-
+    <div class="owl-carousel slide-two">
+      <div class="itemWrapper"> Your Content </div>
+      <div class="itemWrapper"> Your Content </div>
+      <div class="itemWrapper"> Your Content </div>
+      <div class="itemWrapper"> Your Content </div>
+      <div class="itemWrapper"> Your Content </div>
+      <div class="itemWrapper"> Your Content </div>
+      <div class="itemWrapper"> Your Content </div>
+    </div>
   </div>
 
 </main>

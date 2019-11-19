@@ -28,9 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/effects/owl-carousel/owl.carousel.min.css",
+              "src/effects/owl-carousel/owl.theme.default.min.css",
+              "src/effects/owl-carousel/animate.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./src/effects/owl-carousel/owl.carousel.min.js",
+              "./src/effects/owl-carousel/owl.animate.js"
+            ]
           },
           "configurations": {
             "production": {

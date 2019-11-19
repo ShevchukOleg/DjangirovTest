@@ -1,11 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Film } from '../../interfaces/filmsInterface';
+import { ContentService } from '../../services/content.service';
+
+
+declare const $: any;
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent implements OnInit, AfterViewInit {
+
 
   public viewState = {
     filter1: 'movies',
@@ -14,9 +20,60 @@ export class ContentComponent implements OnInit {
     view2: 'list'
   };
 
-  constructor() { }
+  public owlParams = {
+    items: 3,
+    margin: 126,
+    stagePadding: 150,
+    loop: true,
+    rewind: true,
+    center: true,
+    nav: true,
+    navText: ['&larr;', '&rarr;'],
+    autoplay: false,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    autoplaySpeed: 1200,
+    smartSpeed: 750,
+    responsive: {
+      0: {
+        items: 1
+      },
+      768: {
+        items: 2
+      },
+      1024: {
+        items: 3
+      }
+    }
+  }
+
+  public allFilms: Film[] = [];
+
+  constructor(
+    public contenDatatService: ContentService
+  ) { }
 
   ngOnInit() {
+    this.contenDatatService.getfilmsInfo();
+    this.contenDatatService.allFilmsObservableSubject.subscribe(
+      (data: Film[]) => {
+        this.allFilms = data.slice();
+        console.log('Data get in component class:', this.allFilms, Date.now());
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  ngAfterViewInit(): void {
+    $(document).ready(
+      () => $('.slide-one').owlCarousel(this.owlParams)
+    );
+
+    console.log(Date.now());
+
+    $(document).ready(
+      () => $('.slide-two').owlCarousel(this.owlParams)
+    );
   }
 
   public changeViewState(section: string, state: string): void {
