@@ -98,7 +98,130 @@ button.cascadeType:focus  {
 
 .itemWrapper {
   width: 240px;
-  height: 473px;
-  padding: 5px;
+  height: 467px;
+  padding: 5px 10px;
   overflow: hidden;
+  background-color: transparent;
+  h4 {
+    margin: 5px 6px 0;
+    height: 44px;
+    overflow: hidden;
+    font: {
+      family: Roboto;
+      weight: bold;
+      size: 22px;
+    }
+    // !Deliberately central text, dislike template.
+    text-align: center;
+  }
+  .productionYear {
+    font: {
+      family: RobotoCondensed;
+      weight: bold;
+      size: 21px;
+      margin: 0 6px;
+    }
+  }
+  .imageWrapper {
+    position: relative;
+    width: 220px;
+    height: 332px;
+    overflow: hidden;
+    border-radius: 5px;;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    i {
+      position: absolute;
+      display: block;
+      z-index: 10;
+      img {
+        z-index: 10;
+        background-color: transparent;
+      }
+    }
+    i:nth-of-type(1) {
+      top: 10px;
+      left: 8px;
+      height: 31px;
+      width: 39px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    i:nth-of-type(2) {
+      top: 10px;
+      right: 8px;
+      height: 42px;
+      width: 37px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    i:nth-of-type(3) {
+      cursor: pointer;
+      height: 60px;
+      width: 60px;
+      border-radius: 30px;
+      background-color: rgba(19, 16, 53, 0.61);
+      top: 124px;
+      right: 79px;
+      transition: .3s;
+      img {
+        height: 30px;
+        width: 26px;
+        object-fit: contain;
+        transform: translate(77%, 50%);
+      }
+    }
+
+    i:nth-of-type(3):hover {
+      top: 121px;
+      background-color: rgba(25, 20, 77, 0.884);
+      transition: .3s;
+    }
+  }
+
+  .info {
+    margin: 7px 10px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+
+      .infoElement {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        img {
+          height: 23px;
+          width: 23px;
+          object-fit: contain;
+        }
+        span {
+          line-height: 16px;
+          font: {
+            family: ProximaNova;
+            weight: bold;
+            size: 13px;
+
+          }
+        }
+      }
+      .infoElement:first-of-type {
+        cursor: pointer;
+        img:hover{
+          height: 25px;
+
+        }
+
+      }
+
+  }
 }

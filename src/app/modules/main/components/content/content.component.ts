@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Film } from '../../interfaces/filmsInterface';
 import { ContentService } from '../../services/content.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
 declare const $: any;
@@ -10,7 +11,7 @@ declare const $: any;
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit, AfterViewInit {
+export class ContentComponent implements OnInit {
 
 
   public viewState = {
@@ -20,16 +21,17 @@ export class ContentComponent implements OnInit, AfterViewInit {
     view2: 'list'
   };
 
-  public owlParams = {
+  public owlParams: OwlOptions = {
     items: 3,
     margin: 126,
-    stagePadding: 150,
+    stagePadding: 250,
     loop: true,
-    rewind: true,
+    rewind: false,
     center: true,
-    nav: true,
+    nav: false,
     navText: ['&larr;', '&rarr;'],
-    autoplay: false,
+    dots: false,
+    autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     autoplaySpeed: 1200,
@@ -45,9 +47,10 @@ export class ContentComponent implements OnInit, AfterViewInit {
         items: 3
       }
     }
-  }
+  };
 
   public allFilms: Film[] = [];
+  public showIdentifier = 'TV-Show';
 
   constructor(
     public contenDatatService: ContentService
@@ -64,17 +67,18 @@ export class ContentComponent implements OnInit, AfterViewInit {
     );
   }
 
-  ngAfterViewInit(): void {
-    $(document).ready(
-      () => $('.slide-one').owlCarousel(this.owlParams)
-    );
+  // ngAfterViewInit(): void {
+  //   $(document).ready(
+  //     () => $('.slide-one').owlCarousel(this.owlParams)
+  //   );
 
-    console.log(Date.now());
+  //   console.log(Date.now());
 
-    $(document).ready(
-      () => $('.slide-two').owlCarousel(this.owlParams)
-    );
-  }
+  //   $(document).ready(
+  //     () => $('.slide-two').owlCarousel(this.owlParams)
+  //   );
+  // }
+
 
   public changeViewState(section: string, state: string): void {
     if ( section === 'comingSoon' ) {

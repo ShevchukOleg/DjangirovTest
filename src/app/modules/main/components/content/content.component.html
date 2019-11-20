@@ -31,7 +31,50 @@
             <div>{{item.title}}</div>
         </div>
       </owl-carousel> -->
-      <div class="owl-carousel slide-one">
+      <owl-carousel-o [options]="owlParams">
+          <ng-container *ngFor="let film of allFilms" >
+            <ng-template carouselSlide [id]="film.id">
+              <div class="itemWrapper">
+                <h4>{{film.title}}</h4>
+                <span class="productionYear">{{film.year}}</span>
+                <div class="imageWrapper">
+                  <img [src]="film.poster" alt="film poster">
+                  <i *ngIf="film.type === 'TV-Show'">
+                    <img src="./assets/svg/tv-show-type.gif" alt="movie-type">
+                  </i>
+                  <i *ngIf="film.type === 'Movie'">
+                      <img src="./assets/svg/movie-type.gif" alt="movie-type">
+                  </i>
+                  <i>
+                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                  </i>
+                  <i>
+                    <img src="./assets/svg/play-button.gif" alt="play">
+                  </i>
+                </div>
+                <div class="info">
+                  <div class="infoElement">
+                    <img src="./assets/svg/share.gif" alt="share">
+                  </div>
+                  <div class="infoElement">
+                    <span>{{film.comments_count}}</span>
+                    <img src="./assets/svg/comments.gif" alt="comments">
+                  </div>
+                  <div class="infoElement">
+                    <span>{{film.rank}}</span>
+                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                  </div>
+                  <div class="infoElement">
+                    <span>{{film.rank}}</span>
+                    <img src="./assets/svg/likes.gif" alt="like">
+                  </div>
+                </div>
+              </div>
+
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      <!-- <div class="owl-carousel slide-one">
         <div *ngFor="let film of allFilms" class="itemWrapper">
           <h4>{{film.title}}</h4>
           <span>{{film.year}}</span>
@@ -59,7 +102,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- carusel end -->
     <div class="coloristic">

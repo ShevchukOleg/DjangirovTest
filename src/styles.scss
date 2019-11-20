@@ -137,3 +137,17 @@ section, header {
   font-style: italic;
   font-weight: normal;
 }
+
+@font-face {
+  font-family: Roboto;
+  src: url(./assets/fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url(./assets/fonts/FontsFree-Net-Proxima-Nova-Bold.otf) format("opentype");
+  font-style: normal;
+  font-weight: bold;
+}
