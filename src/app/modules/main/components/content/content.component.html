@@ -26,11 +26,6 @@
     </div>
     <!-- control end -->
     <div class="carusel">
-      <!-- <owl-carousel [options]="owlParams" [items]="allFilms">
-        <div class="item" *ngFor="let item of allFilms">
-            <div>{{item.title}}</div>
-        </div>
-      </owl-carousel> -->
       <owl-carousel-o [options]="owlParams">
           <ng-container *ngFor="let film of allFilms" >
             <ng-template carouselSlide [id]="film.id">
@@ -48,7 +43,7 @@
                   <i>
                     <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
                   </i>
-                  <i>
+                  <i class="playButton">
                     <img src="./assets/svg/play-button.gif" alt="play">
                   </i>
                 </div>
@@ -70,39 +65,9 @@
                   </div>
                 </div>
               </div>
-
             </ng-template>
           </ng-container>
         </owl-carousel-o>
-      <!-- <div class="owl-carousel slide-one">
-        <div *ngFor="let film of allFilms" class="itemWrapper">
-          <h4>{{film.title}}</h4>
-          <span>{{film.year}}</span>
-          <div class="imageWrapper">
-            <img [src]="film.poster" alt="film poster">
-          </div>
-          <div class="info">
-            <div class="infoElement">
-              <img src="" alt="">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="infoElement">
-              <span>{{film.comments_count}}</span>
-              <img src="" alt="">
-            </div>
-            <div class="infoElement">
-              <span>{{film.rank}}</span>
-              <img src="" alt="">
-            </div>
-            <div class="infoElement">
-              <span>{{film.rank}}</span>
-              <img src="" alt="">
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
     <!-- carusel end -->
     <div class="coloristic">
@@ -131,16 +96,57 @@
       </div>
   </div>
   <!-- control end -->
-  <div class="carusel">
-    <div class="owl-carousel slide-two">
-      <div class="itemWrapper"> Your Content </div>
-      <div class="itemWrapper"> Your Content </div>
-      <div class="itemWrapper"> Your Content </div>
-      <div class="itemWrapper"> Your Content </div>
-      <div class="itemWrapper"> Your Content </div>
-      <div class="itemWrapper"> Your Content </div>
-      <div class="itemWrapper"> Your Content </div>
+  <div class="container">
+    <div class="row">
+      <div class="carusel">
+        <div class="swiperWrapper">
+          <swiper class="swiper-container" [config]="swiperConfig">
+            <div class="slide" *ngFor="let film of allFilms">
+              <div class="posterWrapper">
+                <img [src]="film.poster" alt="poster">
+                <i class="playButton">
+                  <img src="./assets/svg/play-button.gif" alt="play">
+                </i>
+              </div>
+              <div class="raiting">
+                <span>{{film.rank}}</span>
+                <!-- <i *ngIf="film.rank === 0">
+                  <img [src]="./assets/svg/gradeless-2.gif" alt="">
+                </i> -->
+              </div>
+              <div class="description">
+                <div>
+                 <h4>{{film.title}}</h4>
+                  <p class="filmDatails">{{film.year}} | Dsirector: {{film.director}} | Writer: {{film.writer}}</p>
+                </div>
+                <p class="content">{{film.content}}</p>
+                <div class="info">
+                  <div class="statistic">
+                    <div class="infoElement">
+                      <img src="./assets/svg/share.gif" alt="share">
+                    </div>
+                    <div class="infoElement">
+                      <span>{{film.comments_count}}</span>
+                      <img src="./assets/svg/comments.gif" alt="comments">
+                    </div>
+                    <div class="infoElement">
+                      <span>{{film.rank}}</span>
+                      <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                    </div>
+                    <div class="infoElement">
+                      <span>{{film.rank}}</span>
+                      <img src="./assets/svg/likes.gif" alt="like">
+                    </div>
+                  </div>
+                  <div class="moreInfo">
+                    <a href="{{film.link}}">Read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper>
+        </div>
+      </div>
     </div>
   </div>
-
 </main>

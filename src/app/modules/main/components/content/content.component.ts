@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Film } from '../../interfaces/filmsInterface';
 import { ContentService } from '../../services/content.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
+  SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 
 
-declare const $: any;
 
 @Component({
   selector: 'app-content',
@@ -19,6 +20,23 @@ export class ContentComponent implements OnInit {
     view1: 'card',
     filter2: 'movies',
     view2: 'list'
+  };
+
+  public swiperConfig: SwiperConfigInterface = {
+    loop: true,
+    direction: 'vertical',
+    spaceBetween: 50,
+    speed: 800,
+    effect: 'slide',
+    slidesPerView: 3,
+    keyboard: true,
+    mousewheel: true,
+    scrollbar: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: false
   };
 
   public owlParams: OwlOptions = {

@@ -4,6 +4,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'vertical',
+  loop: true,
+  slidesPerView: 3,
+  threshold: 20,
+  spaceBetween: 10
+};
 
 
 
@@ -11,7 +20,14 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   declarations: [HeaderComponent, FooterComponent, ContentComponent],
   imports: [
     CommonModule,
-    CarouselModule
+    CarouselModule,
+    SwiperModule
+  ],
+  providers: [
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
   ],
   exports: [ HeaderComponent, FooterComponent, ContentComponent]
 })

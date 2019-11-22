@@ -31,7 +31,8 @@
               "src/styles.scss",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
-              "src/effects/owl-carousel/animate.css"
+              "src/effects/owl-carousel/animate.css",
+              "node_modules/swiper/dist/css/swiper.min.css"
             ],
             "scripts": [
 

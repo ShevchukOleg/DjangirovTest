@@ -102,7 +102,49 @@ section, header {
   text-align: center;
 }
 
+main .swiper.s-wrapper.swiper-container-vertical >
+div.swiper-button-next {
+  position: absolute;
+  margin-top: 0px;
+  transform: rotate(180deg);
+  bottom: 0;
+  left: 97.8%;
+  width: 26px;
+  height: 8px;
+  z-index: 100;
+  cursor: pointer;
+  transition: 0.4s;
+  background-size: 26px 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: baseline;
+  background-image: url("/assets/svg/verticali-slider-arrows2.gif");
+  &:active {
+    outline: none;
+  }
+  &:hover {
+    opacity: 0.8;
+    transition: 0.4s;
+
+  }
+}
+
+main .swiper.s-wrapper.swiper-container-vertical >
+div.swiper-button-prev {
+  @extend .swiper-button-next;
+  top: 0;
+  bottom: auto;
+  transform: rotate(0);
+}
+
 /*Fonts*/
+@font-face {
+  font-family: RobotoCondensed;
+  src: url(./assets/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 @font-face {
   font-family: RobotoCondensed;
   src: url(./assets/fonts/Roboto_Condensed/RobotoCondensed-BoldItalic.ttf) format("truetype");
