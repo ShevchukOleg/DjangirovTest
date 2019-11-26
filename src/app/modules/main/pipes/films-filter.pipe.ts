@@ -5,7 +5,10 @@ import { Film } from '../interfaces/filmsInterface';
   name: 'filmsFilter'
 })
 export class FilmsFilterPipe implements PipeTransform {
-
+  /**
+   * @param value - перелік об'єктів з інтерфейсом Film для фільтрації
+   * @param order - параметр фільтрації
+   */
   transform(value: Film[], order: string): Film[] {
     switch (order) {
       case 'all':

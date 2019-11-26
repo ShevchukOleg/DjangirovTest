@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Film } from '../../interfaces/filmsInterface';
 import { ContentService } from '../../services/content.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
-  SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+import {
+  SwiperComponent, SwiperDirective, SwiperConfigInterface,
+  SwiperScrollbarInterface, SwiperPaginationInterface
+} from 'ngx-swiper-wrapper';
 
 
 
@@ -14,7 +16,8 @@ import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
 })
 export class ContentComponent implements OnInit {
 
-
+  /** viewState - об'єкт управління фільтрації та типів відображення слайдерів
+   */
   public viewState = {
     filter1: 'movies',
     view1: 'card',
@@ -22,6 +25,9 @@ export class ContentComponent implements OnInit {
     view2: 'list'
   };
 
+  /**
+   * swiperConfig - об'єкт параметрві горизонтального слайдеру
+   */
   public swiperConfig: SwiperConfigInterface = {
     loop: true,
     direction: 'vertical',
@@ -39,6 +45,9 @@ export class ContentComponent implements OnInit {
     pagination: false
   };
 
+  /**
+   * swiperConfig - об'єкт параметрві вертикального слайдеру
+   */
   public owlParams: OwlOptions = {
     items: 2,
     margin: 126,
@@ -49,7 +58,7 @@ export class ContentComponent implements OnInit {
     nav: false,
     navText: ['&larr;', '&rarr;'],
     dots: false,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     autoplaySpeed: 1200,
@@ -67,13 +76,20 @@ export class ContentComponent implements OnInit {
     }
   };
 
+  /**
+   * локальне сховище данних про всі об'єкти для відображення в шаблоні
+   */
   public allFilms: Film[] = [];
-  public showIdentifier = 'TV-Show';
 
   constructor(
     public contenDatatService: ContentService
   ) { }
 
+  /**
+   * на єтапі ініціалізації компоненти звертаємось до сервісу із запитом на надання
+   * передіку об'єктів на відображення; підписуємось на спостерігач із сервісу,
+   * при надходжені зберігаєм данні до this.allFilms
+   */
   ngOnInit() {
     this.contenDatatService.getfilmsInfo();
     this.contenDatatService.allFilmsObservableSubject.subscribe(
@@ -85,46 +101,51 @@ export class ContentComponent implements OnInit {
     );
   }
 
+  /**
+   * changeViewState - метод управління станами відображення та сортування данних слайдерів
+   * @param section - розділ зі слайдером
+   * @param state - порядо сортування
+   */
   public changeViewState(section: string, state: string): void {
-    if ( section === 'comingSoon' ) {
+    if (section === 'comingSoon') {
       switch (state) {
         case
           'all': this.viewState.filter1 = 'all';
-                 break;
+          break;
         case
           'movies': this.viewState.filter1 = 'movies';
-                    break;
+          break;
         case
           'tv': this.viewState.filter1 = 'tv';
-                break;
+          break;
         case
           'card': this.viewState.view1 = 'card';
-                break;
+          break;
         case
           'list': this.viewState.view1 = 'list';
-                break;
+          break;
         default: {
           this.viewState.filter1 = 'movies';
           this.viewState.view1 = 'card';
         };
       }
-    } else if ( section === 'mostPopular' ) {
+    } else if (section === 'mostPopular') {
       switch (state) {
         case
           'all': this.viewState.filter2 = 'all';
-                 break;
+          break;
         case
           'movies': this.viewState.filter2 = 'movies';
-                    break;
+          break;
         case
           'tv': this.viewState.filter2 = 'tv';
-                break;
+          break;
         case
           'card': this.viewState.view2 = 'card';
-                break;
+          break;
         case
           'list': this.viewState.view2 = 'list';
-                break;
+          break;
         default: {
           this.viewState.filter1 = 'movies';
           this.viewState.view1 = 'list';
@@ -133,7 +154,9 @@ export class ContentComponent implements OnInit {
     }
     console.log(this.viewState);
   }
-
+  /**
+   * группа гетерів для передачі данних до шаблону
+   */
   get filter1Order() {
     return this.viewState.filter1;
   }
