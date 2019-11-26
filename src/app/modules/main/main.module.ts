@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { FilmsFilterPipe } from './pipes/films-filter.pipe';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'vertical',
@@ -17,7 +18,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, ContentComponent],
+  declarations: [HeaderComponent, FooterComponent, ContentComponent, FilmsFilterPipe],
   imports: [
     CommonModule,
     CarouselModule,

@@ -108,7 +108,7 @@ div.swiper-button-next {
   margin-top: 0px;
   transform: rotate(180deg);
   bottom: 0;
-  left: 97.8%;
+  left: 98.8%;
   width: 26px;
   height: 8px;
   z-index: 100;
@@ -190,6 +190,13 @@ div.swiper-button-prev {
 @font-face {
   font-family: ProximaNova;
   src: url(./assets/fonts/FontsFree-Net-Proxima-Nova-Bold.otf) format("opentype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: GothamBold;
+  src: url(./assets/fonts/GothamBold/GothamBold.otf) format("opentype");
   font-style: normal;
   font-weight: bold;
 }

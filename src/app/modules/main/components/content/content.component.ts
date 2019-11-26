@@ -40,7 +40,7 @@ export class ContentComponent implements OnInit {
   };
 
   public owlParams: OwlOptions = {
-    items: 3,
+    items: 2,
     margin: 126,
     stagePadding: 250,
     loop: true,
@@ -84,19 +84,6 @@ export class ContentComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-
-  // ngAfterViewInit(): void {
-  //   $(document).ready(
-  //     () => $('.slide-one').owlCarousel(this.owlParams)
-  //   );
-
-  //   console.log(Date.now());
-
-  //   $(document).ready(
-  //     () => $('.slide-two').owlCarousel(this.owlParams)
-  //   );
-  // }
-
 
   public changeViewState(section: string, state: string): void {
     if ( section === 'comingSoon' ) {
@@ -145,5 +132,21 @@ export class ContentComponent implements OnInit {
       }
     }
     console.log(this.viewState);
+  }
+
+  get filter1Order() {
+    return this.viewState.filter1;
+  }
+
+  get filter2Order() {
+    return this.viewState.filter2;
+  }
+
+  get firstSliderStyle() {
+    return this.viewState.view1;
+  }
+
+  get secondSliderStyle() {
+    return this.viewState.view2;
   }
 }

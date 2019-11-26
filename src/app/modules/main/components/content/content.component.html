@@ -1,6 +1,6 @@
 <main>
   <div class="section">
-    <div class="coloristic">
+    <div class="controlLine">
       <div class="container ">
         <div class="row">
           <h2 class="sectionTitle">Coming soon</h2>
@@ -25,9 +25,10 @@
       </div>
     </div>
     <!-- control end -->
-    <div class="carusel">
+    <div [ngSwitch]="viewState.view1">
+      <div class="carusel" *ngSwitchCase="'card'">
       <owl-carousel-o [options]="owlParams">
-          <ng-container *ngFor="let film of allFilms" >
+          <ng-container *ngFor="let film of (allFilms |filmsFilter: filter1Order)" >
             <ng-template carouselSlide [id]="film.id">
               <div class="itemWrapper">
                 <h4>{{film.title}}</h4>
@@ -68,85 +69,186 @@
             </ng-template>
           </ng-container>
         </owl-carousel-o>
-    </div>
-    <!-- carusel end -->
-    <div class="coloristic">
-        <div class="container ">
-          <div class="row">
-            <h2 class="sectionTitle">Most popular</h2>
-            <div class="control">
-              <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'all')" [ngClass]="{'active': viewState.filter2 === 'all'}">
-                All
-              </button>
-              <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'movies')" [ngClass]="{'active': viewState.filter2 === 'movies'}">
-                Movies
-              </button>
-              <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'tv')" [ngClass]="{'active': viewState.filter2 === 'tv'}">
-                TV Shows
-              </button>
-              <button class="cascadeType" (click)="changeViewState('mostPopular', 'card')" [ngClass]="{'active': viewState.view2 === 'card'}">
-                <img src="./assets/svg/card-view.gif" alt="cards icon">
-              </button>
-              <button class="cascadeType" (click)="changeViewState('mostPopular', 'list')" [ngClass]="{'active': viewState.view2 === 'list'}">
-                <img src="./assets/svg/list-view.gif" alt="list icon">
-              </button>
-            </div>
+      </div>
+      <div class="container" *ngSwitchCase="'list'">
+      <div class="row">
+        <div class="carusel">
+          <div class="swiperWrapper">
+            <swiper class="swiper-container" [config]="swiperConfig">
+              <div class="slide" *ngFor="let film of (allFilms | filmsFilter: filter1Order)">
+                <div class="posterWrapper">
+                  <img [src]="film.poster" alt="poster">
+                  <i class="playButton">
+                    <img src="./assets/svg/play-button.gif" alt="play">
+                  </i>
+                </div>
+                <div class="raiting">
+                  <span>{{film.rank || film.expectations_count}}</span>
+                  <div class="iconWrapper" *ngIf="film.expectations_count">
+                    <img src="/assets/svg/gradeless-2.gif" alt="expectation">
+                  </div>
+                </div>
+                <div class="description">
+                  <div>
+                   <h4>{{film.title}}</h4>
+                    <p class="filmDatails">{{film.year}} | Dsirector: {{film.director}} | Writer: {{film.writer}}</p>
+                  </div>
+                  <p class="content">{{film.content}}</p>
+                  <div class="info">
+                    <div class="statistic">
+                      <div class="infoElement">
+                        <img src="./assets/svg/share.gif" alt="share">
+                      </div>
+                      <div class="infoElement">
+                        <span>{{film.comments_count}}</span>
+                        <img src="./assets/svg/comments.gif" alt="comments">
+                      </div>
+                      <div class="infoElement">
+                        <span>{{film.rank || film.expectations_count}}</span>
+                        <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                      </div>
+                      <div class="infoElement">
+                        <span>{{film.likes_count}}</span>
+                        <img src="./assets/svg/likes.gif" alt="like">
+                      </div>
+                    </div>
+                    <div class="moreInfo">
+                      <a href="{{film.link}}">Read more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper>
           </div>
         </div>
       </div>
-  </div>
-  <!-- control end -->
-  <div class="container">
-    <div class="row">
-      <div class="carusel">
-        <div class="swiperWrapper">
-          <swiper class="swiper-container" [config]="swiperConfig">
-            <div class="slide" *ngFor="let film of allFilms">
-              <div class="posterWrapper">
-                <img [src]="film.poster" alt="poster">
-                <i class="playButton">
-                  <img src="./assets/svg/play-button.gif" alt="play">
-                </i>
-              </div>
-              <div class="raiting">
-                <span>{{film.rank}}</span>
-                <!-- <i *ngIf="film.rank === 0">
-                  <img [src]="./assets/svg/gradeless-2.gif" alt="">
-                </i> -->
-              </div>
-              <div class="description">
-                <div>
-                 <h4>{{film.title}}</h4>
-                  <p class="filmDatails">{{film.year}} | Dsirector: {{film.director}} | Writer: {{film.writer}}</p>
-                </div>
-                <p class="content">{{film.content}}</p>
-                <div class="info">
-                  <div class="statistic">
-                    <div class="infoElement">
-                      <img src="./assets/svg/share.gif" alt="share">
-                    </div>
-                    <div class="infoElement">
-                      <span>{{film.comments_count}}</span>
-                      <img src="./assets/svg/comments.gif" alt="comments">
-                    </div>
-                    <div class="infoElement">
-                      <span>{{film.rank}}</span>
-                      <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
-                    </div>
-                    <div class="infoElement">
-                      <span>{{film.rank}}</span>
-                      <img src="./assets/svg/likes.gif" alt="like">
-                    </div>
-                  </div>
-                  <div class="moreInfo">
-                    <a href="{{film.link}}">Read more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </swiper>
+      </div>
+    </div>
+    <!-- carusel end -->
+    <div class="controlLine">
+      <div class="container ">
+        <div class="row">
+          <h2 class="sectionTitle">Most popular</h2>
+          <div class="control">
+            <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'all')" [ngClass]="{'active': viewState.filter2 === 'all'}">
+              All
+            </button>
+            <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'movies')" [ngClass]="{'active': viewState.filter2 === 'movies'}">
+              Movies
+            </button>
+            <button class="filterTypeButton" (click)="changeViewState('mostPopular', 'tv')" [ngClass]="{'active': viewState.filter2 === 'tv'}">
+              TV Shows
+            </button>
+            <button class="cascadeType" (click)="changeViewState('mostPopular', 'card')" [ngClass]="{'active': viewState.view2 === 'card'}">
+              <img src="./assets/svg/card-view.gif" alt="cards icon">
+            </button>
+            <button class="cascadeType" (click)="changeViewState('mostPopular', 'list')" [ngClass]="{'active': viewState.view2 === 'list'}">
+              <img src="./assets/svg/list-view.gif" alt="list icon">
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <!-- control end -->
+    <div [ngSwitch]="viewState.view2">
+      <div *ngSwitchCase="'card'" class="carusel" >
+      <owl-carousel-o [options]="owlParams">
+          <ng-container *ngFor="let film of (allFilms |filmsFilter: filter2Order)" >
+            <ng-template carouselSlide [id]="film.id">
+              <div class="itemWrapper">
+                <h4>{{film.title}}</h4>
+                <span class="productionYear">{{film.year}}</span>
+                <div class="imageWrapper">
+                  <img [src]="film.poster" alt="film poster">
+                  <i *ngIf="film.type === 'TV-Show'">
+                    <img src="./assets/svg/tv-show-type.gif" alt="movie-type">
+                  </i>
+                  <i *ngIf="film.type === 'Movie'">
+                      <img src="./assets/svg/movie-type.gif" alt="movie-type">
+                  </i>
+                  <i>
+                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                  </i>
+                  <i class="playButton">
+                    <img src="./assets/svg/play-button.gif" alt="play">
+                  </i>
+                </div>
+                <div class="info">
+                  <div class="infoElement">
+                    <img src="./assets/svg/share.gif" alt="share">
+                  </div>
+                  <div class="infoElement">
+                    <span>{{film.comments_count}}</span>
+                    <img src="./assets/svg/comments.gif" alt="comments">
+                  </div>
+                  <div class="infoElement">
+                    <span>{{film.rank}}</span>
+                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                  </div>
+                  <div class="infoElement">
+                    <span>{{film.rank}}</span>
+                    <img src="./assets/svg/likes.gif" alt="like">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+      <div *ngSwitchCase="'list'" class="container">
+      <div class="row">
+        <div class="carusel">
+          <div class="swiperWrapper">
+            <swiper class="swiper-container" [config]="swiperConfig">
+              <div class="slide" *ngFor="let film of (allFilms | filmsFilter: filter2Order)">
+                <div class="posterWrapper">
+                  <img [src]="film.poster" alt="poster">
+                  <i class="playButton">
+                    <img src="./assets/svg/play-button.gif" alt="play">
+                  </i>
+                </div>
+                <div class="raiting">
+                  <span>{{film.rank || film.expectations_count}}</span>
+                  <div class="iconWrapper" *ngIf="film.expectations_count">
+                    <img src="/assets/svg/gradeless-2.gif" alt="expectation">
+                  </div>
+                </div>
+                <div class="description">
+                  <div>
+                   <h4>{{film.title}}</h4>
+                    <p class="filmDatails">{{film.year}} | Dsirector: {{film.director}} | Writer: {{film.writer}}</p>
+                  </div>
+                  <p class="content">{{film.content}}</p>
+                  <div class="info">
+                    <div class="statistic">
+                      <div class="infoElement">
+                        <img src="./assets/svg/share.gif" alt="share">
+                      </div>
+                      <div class="infoElement">
+                        <span>{{film.comments_count}}</span>
+                        <img src="./assets/svg/comments.gif" alt="comments">
+                      </div>
+                      <div class="infoElement">
+                        <span>{{film.rank || film.expectations_count}}</span>
+                        <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                      </div>
+                      <div class="infoElement">
+                        <span>{{film.likes_count}}</span>
+                        <img src="./assets/svg/likes.gif" alt="like">
+                      </div>
+                    </div>
+                    <div class="moreInfo">
+                      <a href="{{film.link}}">Read more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- carusel end -->
   </div>
 </main>
