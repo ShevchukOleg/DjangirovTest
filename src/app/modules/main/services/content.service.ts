@@ -24,8 +24,8 @@ export class ContentService {
 
     if (!this.allFilms.length) {
       this.http.get<Film[]>(this.dataLocation).subscribe(
-        (data: Film[]) =>  {
-          this.allFilms = data.slice();
+        (response: Film[]) =>  {
+          this.allFilms = response.slice();
           console.log('Data in service: ', this.allFilms);
           this.allFilmsSource.next(this.allFilms);
         },

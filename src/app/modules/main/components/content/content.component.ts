@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription }   from 'rxjs';
 import { Film } from '../../interfaces/filmsInterface';
 import { ContentService } from '../../services/content.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -14,7 +15,12 @@ import {
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+
+export class ContentComponent implements OnInit, OnDestroy {
+  /**
+   * перелік підписок компоненти
+   */
+  subscriptions: Subscription[] = [];
 
   /** viewState - об'єкт управління фільтрації та типів відображення слайдерів
    */
@@ -85,6 +91,7 @@ export class ContentComponent implements OnInit {
     public contenDatatService: ContentService
   ) { }
 
+
   /**
    * на єтапі ініціалізації компоненти звертаємось до сервісу із запитом на надання
    * передіку об'єктів на відображення; підписуємось на спостерігач із сервісу,
@@ -92,13 +99,28 @@ export class ContentComponent implements OnInit {
    */
   ngOnInit() {
     this.contenDatatService.getfilmsInfo();
-    this.contenDatatService.allFilmsObservableSubject.subscribe(
-      (data: Film[]) => {
-        this.allFilms = data.slice();
-        console.log('Data get in component class:', this.allFilms, Date.now());
-      },
-      (error) => console.log(error)
+    this.subscriptions.push(
+      this.contenDatatService.allFilmsObservableSubject.subscribe(
+        (data: Film[]) => {
+          this.allFilms = data.slice();
+          console.log('Data get in component class:', this.allFilms, Date.now());
+        },
+        (error) => console.log(error)
+      )
     );
+  }
+
+  ngOnDestroy(): void {
+    /**
+     * відписка від спостерігачів сервісу
+     */
+    this.subscriptions.forEach(
+        (subscription) => {
+          subscription.unsubscribe();
+          subscription = null;
+        }
+      );
+    this.subscriptions = [];
   }
 
   /**
