@@ -16,10 +16,10 @@
               TV Shows
             </button>
             <button class="cascadeType" (click)="changeViewState('comingSoon', 'card')" [ngClass]="{'active': viewState.view1 === 'card'}">
-              <img src="./assets/svg/card-view.gif" alt="cards icon">
+              <img src="../../../../../assets/svg/card-view.gif" alt="cards icon">
             </button>
             <button class="cascadeType" (click)="changeViewState('comingSoon', 'list')" [ngClass]="{'active': viewState.view1 === 'list'}">
-              <img src="./assets/svg/list-view.gif" alt="list icon">
+              <img src="../../../../../assets/svg/list-view.gif" alt="list icon">
             </button>
           </div>
         </div>
@@ -39,33 +39,33 @@
                 <div class="imageWrapper">
                   <img [src]="film.poster" alt="film poster">
                   <i *ngIf="film.type === 'TV-Show'">
-                    <img src="./assets/svg/tv-show-type.gif" alt="movie-type">
+                    <img src="../../../../../assets/svg/tv-show-type.gif" alt="movie-type">
                   </i>
                   <i *ngIf="film.type === 'Movie'">
-                      <img src="./assets/svg/movie-type.gif" alt="movie-type">
+                      <img src="../../../../../assets/svg/movie-type.gif" alt="movie-type">
                   </i>
                   <i>
-                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                    <img src="../../../../../assets/svg/gradeless-2.gif" alt="gradeless">
                   </i>
                   <i class="playButton">
-                    <img src="./assets/svg/play-button.gif" alt="play">
+                    <img src="../../../../../assets/svg/play-button.gif" alt="play">
                   </i>
                 </div>
                 <div class="info">
                   <div class="infoElement">
-                    <img src="./assets/svg/share.gif" alt="share">
+                    <img src="../../../../../assets/svg/share.gif" alt="share">
                   </div>
                   <div class="infoElement">
                     <span>{{film.comments_count}}</span>
-                    <img src="./assets/svg/comments.gif" alt="comments">
+                    <img src="../../../../../assets/svg/comments.gif" alt="comments">
                   </div>
                   <div class="infoElement">
                     <span>{{film.rank}}</span>
-                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                    <img src="../../../../../assets/svg/gradeless-2.gif" alt="gradeless">
                   </div>
                   <div class="infoElement">
                     <span>{{film.rank}}</span>
-                    <img src="./assets/svg/likes.gif" alt="like">
+                    <img src="../../../../../assets/svg/likes.gif" alt="like">
                   </div>
                 </div>
               </div>
@@ -82,13 +82,13 @@
                 <div class="posterWrapper">
                   <img [src]="film.poster" alt="poster">
                   <i class="playButton">
-                    <img src="./assets/svg/play-button.gif" alt="play">
+                    <img src="../../../../../assets/svg/play-button.gif" alt="play">
                   </i>
                 </div>
                 <div class="raiting">
                   <span>{{film.rank || film.expectations_count}}</span>
                   <div class="iconWrapper" *ngIf="film.expectations_count">
-                    <img src="/assets/svg/gradeless-2.gif" alt="expectation">
+                    <img src=../../../../../assets/svg/gradeless-2.gif" alt="expectation">
                   </div>
                 </div>
                 <div class="description">
@@ -100,19 +100,19 @@
                   <div class="info">
                     <div class="statistic">
                       <div class="infoElement">
-                        <img src="./assets/svg/share.gif" alt="share">
+                        <img src="../../../../../assets/svg/share.gif" alt="share">
                       </div>
                       <div class="infoElement">
                         <span>{{film.comments_count}}</span>
-                        <img src="./assets/svg/comments.gif" alt="comments">
+                        <img src="../../../../../assets/svg/comments.gif" alt="comments">
                       </div>
                       <div class="infoElement">
                         <span>{{film.rank || film.expectations_count}}</span>
-                        <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                        <img src="../../../../../assets/svg/gradeless-2.gif" alt="gradeless">
                       </div>
                       <div class="infoElement">
                         <span>{{film.likes_count}}</span>
-                        <img src="./assets/svg/likes.gif" alt="like">
+                        <img src="../../../../../assets/svg/likes.gif" alt="like">
                       </div>
                     </div>
                     <div class="moreInfo">
@@ -144,10 +144,10 @@
               TV Shows
             </button>
             <button class="cascadeType" (click)="changeViewState('mostPopular', 'card')" [ngClass]="{'active': viewState.view2 === 'card'}">
-              <img src="./assets/svg/card-view.gif" alt="cards icon">
+              <img src="../../../../../assets/svg/card-view.gif" alt="cards icon">
             </button>
             <button class="cascadeType" (click)="changeViewState('mostPopular', 'list')" [ngClass]="{'active': viewState.view2 === 'list'}">
-              <img src="./assets/svg/list-view.gif" alt="list icon">
+              <img src="../../../../../assets/svg/list-view.gif" alt="list icon">
             </button>
           </div>
         </div>
@@ -167,33 +167,33 @@
                 <div class="imageWrapper">
                   <img [src]="film.poster" alt="film poster">
                   <i *ngIf="film.type === 'TV-Show'">
-                    <img src="./assets/svg/tv-show-type.gif" alt="movie-type">
+                    <img src="../../../../../assets/svg/tv-show-type.gif" alt="movie-type">
                   </i>
                   <i *ngIf="film.type === 'Movie'">
-                      <img src="./assets/svg/movie-type.gif" alt="movie-type">
+                      <img src="../../../../../assets/svg/movie-type.gif" alt="movie-type">
                   </i>
                   <i>
-                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                    <img src="../../../../../assets/svg/gradeless-2.gif" alt="gradeless">
                   </i>
                   <i class="playButton">
-                    <img src="./assets/svg/play-button.gif" alt="play">
+                    <img src="../../../../../assets/svg/play-button.gif" alt="play">
                   </i>
                 </div>
                 <div class="info">
                   <div class="infoElement">
-                    <img src="./assets/svg/share.gif" alt="share">
+                    <img src="../../../../../assets/svg/share.gif" alt="share">
                   </div>
                   <div class="infoElement">
                     <span>{{film.comments_count}}</span>
-                    <img src="./assets/svg/comments.gif" alt="comments">
+                    <img src="../../../../../assets/svg/comments.gif" alt="comments">
                   </div>
                   <div class="infoElement">
                     <span>{{film.rank}}</span>
-                    <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                    <img src="../../../../../assets/svg/gradeless-2.gif" alt="gradeless">
                   </div>
                   <div class="infoElement">
                     <span>{{film.rank}}</span>
-                    <img src="./assets/svg/likes.gif" alt="like">
+                    <img src="../../../../../assets/svg/likes.gif" alt="like">
                   </div>
                 </div>
               </div>
@@ -210,13 +210,13 @@
                 <div class="posterWrapper">
                   <img [src]="film.poster" alt="poster">
                   <i class="playButton">
-                    <img src="./assets/svg/play-button.gif" alt="play">
+                    <img src="../../../../../assets/svg/play-button.gif" alt="play">
                   </i>
                 </div>
                 <div class="raiting">
                   <span>{{film.rank || film.expectations_count}}</span>
                   <div class="iconWrapper" *ngIf="film.expectations_count">
-                    <img src="/assets/svg/gradeless-2.gif" alt="expectation">
+                    <img src="../../../../../assets/svg/gradeless-2.gif" alt="expectation">
                   </div>
                 </div>
                 <div class="description">
@@ -228,19 +228,19 @@
                   <div class="info">
                     <div class="statistic">
                       <div class="infoElement">
-                        <img src="./assets/svg/share.gif" alt="share">
+                        <img src="../../../../../assets/svg/share.gif" alt="share">
                       </div>
                       <div class="infoElement">
                         <span>{{film.comments_count}}</span>
-                        <img src="./assets/svg/comments.gif" alt="comments">
+                        <img src="../../../../../assets/svg/comments.gif" alt="comments">
                       </div>
                       <div class="infoElement">
                         <span>{{film.rank || film.expectations_count}}</span>
-                        <img src="./assets/svg/gradeless-2.gif" alt="gradeless">
+                        <img src="../../../../../assets/svg/gradeless-2.gif" alt="gradeless">
                       </div>
                       <div class="infoElement">
                         <span>{{film.likes_count}}</span>
-                        <img src="./assets/svg/likes.gif" alt="like">
+                        <img src="../../../../../assets/svg/likes.gif" alt="like">
                       </div>
                     </div>
                     <div class="moreInfo">

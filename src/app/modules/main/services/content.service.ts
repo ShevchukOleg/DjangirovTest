@@ -29,7 +29,6 @@ export class ContentService {
           console.log('Data in service: ', this.allFilms);
           this.allFilmsSource.next(this.allFilms);
         },
-
         (error) => console.log(error)
       );
     } else {
