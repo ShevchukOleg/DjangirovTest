@@ -268,7 +268,7 @@ button.cascadeType:focus  {
         i.playButton {
           @extend %play-button;
           top: 50px;
-          right: 17px;
+          right: 30px;
         }
 
         i.playButton:hover {
@@ -283,26 +283,69 @@ button.cascadeType:focus  {
         }
       }
 
-      .raiting {
+      .rating {
         position: relative;
         flex: 0 0 11.3%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 100%;
-        span {
-          line-height: 166px;
-          font: {
-            family: GothamBold;
-            waight: bold;
-            size: 30px;
+        .progressRing {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          box-shadow: inset 0 0 50px 5px #1310359c;
+          background-color: #fffefe;
+          z-index: 1;
+          svg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-85deg);
+            circle {
+              width: 100%;
+              height: 100%;
+              fill: none;
+              stroke: #d3f4e3;
+              stroke-width: 12;
+              stroke-linecap: round;
+              transform: translate(5px, 5px);
+              &:nth-child(2) {
+                stroke: #22ca71;
+                stroke-dasharray: 214;
+                stroke-dashoffset:20;
+              }
+            }
           }
-          color: #22ca71;
+          .ratingLevel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            p {
+              line-height: 16px;
+              font: {
+              family: "GothamBold";
+              waight: bold;
+              size: 30px;
+              }
+              color: #22ca71;
+            }
+          }
         }
+
         div.iconWrapper {
           position: absolute;
           top: 37px;
-          left: 0;
-          height: 100%;
-          width: 100%;
+          left: 21px;
+          height: 87px;
+          width: 84px;
           img[alt="expectation"] {
             height: 87px;
             width: 83px;
@@ -387,8 +430,6 @@ button.cascadeType:focus  {
             text-decoration-line: underline;
           }
         }
-
-
       }
     }
   }

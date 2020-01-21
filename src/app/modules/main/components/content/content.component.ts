@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription }   from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Film } from '../../interfaces/filmsInterface';
 import { ContentService } from '../../services/content.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
